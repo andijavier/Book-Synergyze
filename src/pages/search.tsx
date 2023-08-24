@@ -18,24 +18,16 @@ type Book = {
   };
 };
 
-export default function Home() {
+export default function Search() {
   const router = useRouter();
-  const [searchQuery, setSearchQuery] = useState('programming');
   const { search } = router.query;
-  const { data, isLoading } = useQuery<Book[]>('books', () => fetchBooks(searchQuery), {
-    enabled: !!searchQuery, // Prevent initial query execution with an empty search query.
+  const { data, isLoading } = useQuery<Book[]>('books', () => fetchBooks(search as string), {
+    enabled: !!search, // Prevent initial query execution with an empty search query.
   });
-
-  useEffect(() => {
-    if (search) {
-      setSearchQuery(search as string)
-      console.log(search);
-    }
-  }, [search]);
 
   return (
     <div>
-      <Navbar home/>
+      <Navbar home={false}/>
       {
         isLoading? <SkeletonLoadingList/> :
         <Card books={data}/>

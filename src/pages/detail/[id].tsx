@@ -56,7 +56,7 @@ export default function Detail() {
             {book.volumeInfo?.imageLinks && (
                 <img
                   src={book.volumeInfo.imageLinks?.thumbnail}
-                  alt={book.volumeInfo.title}
+                  alt={book.volumeInfo.title? book.volumeInfo.title : 'ga kebaca'}
                   className="h-full w-full object-cover object-center lg:h-full lg:w-full"
                 />
             )}
@@ -69,7 +69,7 @@ export default function Detail() {
               </div>
               <div className="flex mb-4 felx-row">
                 <div className="basis-1/2 font-bold">TITLE:</div>
-                <div className="basis-1/2 font-semibold">{book.volumeInfo.title}</div>
+                <div className="basis-1/2 font-semibold">{book.volumeInfo.title? book.volumeInfo.title : 'ga kebaca'}</div>
               </div>
               <div className="flex mb-4 felx-row">
                 <div className="basis-1/2 font-bold">SUBTITLE:</div>
@@ -77,7 +77,7 @@ export default function Detail() {
               </div>
               <div className="flex mb-4 felx-row">
                 <div className="basis-1/2 font-bold">PUBLISHER:</div>
-                <div className="basis-1/2 font-semibold">{book.volumeInfo.publisher}</div>
+                <div className="basis-1/2 font-semibold">{book.volumeInfo.publisher? book.volumeInfo.publisher : 'ga kebaca'}</div>
               </div>
               <div className="flex mb-4 felx-row">
                 <div className="basis-1/2 font-bold">AUTHOR:</div>
@@ -85,7 +85,7 @@ export default function Detail() {
               </div>
               <div className="flex mb-4 felx-row">
                 <div className="basis-1/2 font-bold">DESCRIPTION:</div>
-                <div className="basis-1/2 font-semibold">{book.volumeInfo.description}</div>
+                <div className="basis-1/2 font-semibold">{book.volumeInfo.description? book.volumeInfo.description : 'ga kebaca'}</div>
               </div>
               <div className="flex mb-4 felx-row">
                 <div className="basis-1/2 font-bold">CATEGORIES:</div>

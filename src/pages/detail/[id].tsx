@@ -46,7 +46,7 @@ export default function Detail() {
     console.log('save to local');
     
   }
-  const book = typeof bookData === 'string' ? JSON.parse(bookData) : [];
+  const book = typeof bookData === 'string' ? JSON.parse(bookData) : {};
   return (
     <div className="bg-white">
       <Navbar home={false}/>

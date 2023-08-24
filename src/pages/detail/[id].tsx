@@ -51,7 +51,9 @@ export default function Detail() {
     <div className="bg-white">
       <Navbar home={false}/>
       <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-        {book?
+        {!book?
+          <p>Loading...</p>
+          :
           <div className="flex flex-row">
             <div className="basis-1/2">
               {book.volumeInfo?.imageLinks && (
@@ -101,8 +103,6 @@ export default function Detail() {
               </div>
             </div>
           </div>
-          :
-          <p>Loading...</p>
         }
       </div>
     </div>

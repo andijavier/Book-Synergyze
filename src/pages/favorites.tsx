@@ -20,10 +20,8 @@ type State = {
 };
 
 export default function Favorites() {
-  const initialFavorites = JSON.parse(localStorage.getItem('favorites') || '[]') as Book[];
-  const [favorites, setFavorites] = useState<string[]>([]);
   const [state, setState] = useState<State>({
-    favorites: initialFavorites,
+    favorites: [],
   });
   
   useEffect(() => {
@@ -31,7 +29,7 @@ export default function Favorites() {
     if (typeof window !== 'undefined') {
       // Access localStorage safely
       const storedFavorites = JSON.parse(localStorage.getItem('favorites') || '[]');
-      setFavorites(storedFavorites);
+      setState({ favorites: storedFavorites });
     }
   }, []);
 

@@ -22,11 +22,8 @@ export default function Detail() {
   const router = useRouter();
   const { id } = router.query; // Access the id parameter from the URL
   const { bookData } = router.query; // Access the book data query parameter
-
-  const initialFavorites = JSON.parse(localStorage.getItem('favorites') || '[]') as Book[];
-  const [favorites, setFavorites] = useState<string[]>([]);
   const [state, setState] = useState<State>({
-    favorites: initialFavorites,
+    favorites: [],
   });
 
   useEffect(() => {
@@ -34,10 +31,10 @@ export default function Detail() {
     if (typeof window !== 'undefined') {
       // Access localStorage safely
       const storedFavorites = JSON.parse(localStorage.getItem('favorites') || '[]');
-      setFavorites(storedFavorites);
+      setState({ favorites: storedFavorites });
     }
   }, []);
-  
+
   function saveFavorites(favorites: Book[]) {
     localStorage.setItem('favorites', JSON.stringify(favorites));
   }
